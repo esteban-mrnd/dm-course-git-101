@@ -7,6 +7,8 @@ format: html
 ```{r}
 here::i_am("dm-course-git-101.Rproj")
 library(here)
+library(dplyr)
+library(tidyr)
 ```
 
 ```{r}
@@ -17,9 +19,29 @@ library(ggplot2)
 data("EuStockMarkets")
 ```
 
+##Displaying one time series
+
 ```{r}
 ggplot(EuStockMarkets, aes(y=DAX,x=time(EuStockMarkets)))+
-  geom_line()
+  geom_line()+
 ```
+
+```{r}
+EuStockMarkets<-
+  EuStockMarkets|>
+  as_tibble() |>
+  mutate(date= as.numeric(time(EuStockMarkets)))
+```
+
+### Poor man's solution
+
+
+```{r}
+ggplot(EuStockMarkets, aes(y=CAC,x=date))+
+  geom_line(color='steelblue')+
+  geom_line(mapping=aes(y=DAX), color='salmon')
+```
+
+
 
 \`\`\`
