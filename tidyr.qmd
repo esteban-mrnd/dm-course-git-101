@@ -1,0 +1,25 @@
+---
+title: "Tidyr 101"
+author: "Esteban Marianadin"
+format: html
+---
+
+```{r}
+here::i_am("dm-course-git-101.Rproj")
+library(here)
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+data("EuStockMarkets")
+```
+
+```{r}
+ggplot(EuStockMarkets, aes(y=DAX,x=time(EuStockMarkets)))+
+  geom_line()
+```
+
+\`\`\`
