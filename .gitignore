@@ -4,3 +4,7 @@ my bad
 tidyr_files
 tidyr.html
 README.Rmd
+.RData
+.httr-oauth
+.DS_Store
+.quarto

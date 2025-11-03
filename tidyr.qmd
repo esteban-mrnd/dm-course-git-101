@@ -41,6 +41,16 @@ ggplot(EuStockMarkets, aes(y=CAC,x=date))+
   geom_line(color='steelblue')+
   geom_line(mapping=aes(y=DAX), color='salmon')
 ```
+#TIDYR Solution
+
+```{r}
+EuStockMarkets|>
+  pivot_longer(!date, names_to="index") |>
+  ggplot(aes(x=data, y=value, color=index))+
+  geom_line() ## Marche pas il me manque une partie du code avant.
+``` 
+
+
 
 
 
